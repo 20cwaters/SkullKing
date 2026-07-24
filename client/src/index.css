@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    font-family: theme('fontFamily.body');
+  }
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: theme('fontFamily.display');
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer utilities {
+  /* Aged-paper page background, like the spread the physical cards are photographed on */
+  .bg-parchment-page {
+    background-color: #d7bd8a;
+    background-image:
+      radial-gradient(ellipse 60% 45% at 18% 12%, rgba(120, 88, 40, 0.22), transparent 60%),
+      radial-gradient(ellipse 55% 40% at 85% 25%, rgba(120, 88, 40, 0.16), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 50% 105%, rgba(96, 66, 28, 0.28), transparent 65%),
+      radial-gradient(circle at 70% 70%, rgba(160, 124, 62, 0.14), transparent 40%),
+      radial-gradient(circle at 30% 55%, rgba(160, 124, 62, 0.12), transparent 35%);
+  }
+  /* Lighter parchment for panels sitting on the page */
+  .bg-parchment-sheet {
+    background-color: #f2e6c8;
+    background-image:
+      radial-gradient(circle at 15% 15%, rgba(120, 90, 40, 0.1), transparent 35%),
+      radial-gradient(circle at 85% 30%, rgba(120, 90, 40, 0.08), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(120, 90, 40, 0.12), transparent 45%);
+  }
+  .panel-parchment {
+    @apply bg-parchment-sheet rounded-xl border-2 border-[#6e5634]/50 shadow-[0_4px_12px_rgba(50,32,10,0.35),inset_0_0_0_1px_rgba(255,250,230,0.5)];
+  }
+  .btn-crimson {
+    @apply rounded-md bg-gradient-to-b from-[#a8232f] to-[#7c141f] text-[#f6ecd2] font-display tracking-wide shadow-[0_3px_8px_rgba(50,20,8,0.45),inset_0_1px_0_rgba(255,255,255,0.18)] border border-[#5c0e16] active:scale-95 disabled:opacity-40 transition-transform;
+  }
+  .text-ink-strong {
+    color: #2e2013;
+  }
+  .text-ink-soft {
+    color: #6b5334;
+  }
+  .text-shadow-gold {
+    text-shadow: 0 1px 0 rgba(255, 246, 220, 0.6), 0 2px 6px rgba(110, 82, 18, 0.45);
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
