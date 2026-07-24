@@ -3,7 +3,7 @@ import type { PrivatePlayerState, PublicGameState } from '@skull-king/shared';
 import { useGame } from '../context/GameContext';
 
 const COIN_BASE =
-  'aspect-square rounded-full font-display text-2xl border-2 transition-all flex items-center justify-center';
+  'aspect-square rounded-full font-sans font-extrabold text-2xl border-2 transition-all flex items-center justify-center';
 const COIN_IDLE = 'bg-[#faf4e2] border-[#8a6a3a]/50 text-ink-soft shadow-[0_2px_4px_rgba(50,32,10,0.25)]';
 const COIN_SELECTED =
   'bg-gradient-to-b from-[#f2d888] to-[#c89a2e] border-[#6e5212] text-[#3a2410] scale-110 shadow-[0_0_12px_rgba(200,154,46,0.8)]';
@@ -21,14 +21,14 @@ export function BiddingPanel({ state, privateState }: { state: PublicGameState; 
       <h2 className="font-display text-3xl text-ink-strong text-shadow-gold text-center leading-tight">
         How many tricks will ye win?
       </h2>
-      <p className="text-ink-soft italic text-sm -mt-2">
+      <p className="text-ink-soft text-sm -mt-2">
         Round {state.round} of {state.totalRounds} — {state.round} card{state.round === 1 ? '' : 's'} in hand
       </p>
 
       {alreadyLocked ? (
         <div className="flex flex-col items-center gap-3 mt-2">
           <div className={`${COIN_BASE} ${COIN_SELECTED} w-24 text-5xl`}>{privateState?.myBid}</div>
-          <p className="text-ink-soft text-sm italic">
+          <p className="text-ink-soft text-sm">
             Bid locked in. Waiting on {state.players.length - lockedCount} more pirate
             {state.players.length - lockedCount === 1 ? '' : 's'}…
           </p>

@@ -95,28 +95,32 @@ function CoinMedallion({ cx, cy, r, uid, children }: { cx: number; cy: number; r
   );
 }
 
-function NumberMedallion({ cx, cy, r, uid, value, fontSize }: { cx: number; cy: number; r: number; uid: string; value: number; fontSize: number }) {
+// High-contrast dark badge (not the gold coin gradient) so the number reads clearly
+// against every frame color, at small sizes, on any screen.
+function NumberMedallion({ cx, cy, r, value, fontSize }: { cx: number; cy: number; r: number; value: number; fontSize: number }) {
   return (
-    <CoinMedallion cx={cx} cy={cy} r={r} uid={uid}>
+    <g>
+      <circle cx={cx} cy={cy} r={r} fill="#15110d" stroke="#d9b64c" strokeWidth="1.8" />
+      <circle cx={cx} cy={cy} r={r - 2.6} fill="none" stroke="#d9b64c" strokeWidth="0.6" opacity="0.5" />
       <text
         x={cx}
         y={cy}
         textAnchor="middle"
         dominantBaseline="central"
-        fontFamily='"IM Fell English", Georgia, serif'
-        fontWeight="bold"
+        fontFamily="Arial, Helvetica, sans-serif"
+        fontWeight="800"
         fontSize={fontSize}
-        fill="#3a2410"
+        fill="#fbf6e6"
       >
         {value}
       </text>
-    </CoinMedallion>
+    </g>
   );
 }
 
 function EmblemMedallion({ cx, cy, uid, kind }: { cx: number; cy: number; uid: string; kind: CardModel['kind'] }) {
   return (
-    <CoinMedallion cx={cx} cy={cy} r={9} uid={uid}>
+    <CoinMedallion cx={cx} cy={cy} r={11} uid={uid}>
       <g transform={`translate(${cx} ${cy})`}>
         {kind === 'pirate' && (
           // cutlass
@@ -474,9 +478,9 @@ function CardArt({ card }: { card: CardModel }) {
       {/* corner medallions */}
       {card.kind === 'suit' ? (
         <>
-          <NumberMedallion cx={15.5} cy={16.5} r={10} uid={uid} value={card.value} fontSize={card.value >= 10 ? 9.5 : 11} />
-          <g transform="rotate(180 84.5 123.5)">
-            <NumberMedallion cx={84.5} cy={123.5} r={8} uid={uid} value={card.value} fontSize={card.value >= 10 ? 7.5 : 9} />
+          <NumberMedallion cx={16} cy={17} r={13} value={card.value} fontSize={card.value >= 10 ? 13 : 15.5} />
+          <g transform="rotate(180 84 123)">
+            <NumberMedallion cx={84} cy={123} r={11} value={card.value} fontSize={card.value >= 10 ? 11 : 13} />
           </g>
         </>
       ) : (

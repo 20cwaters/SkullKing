@@ -7,12 +7,12 @@ export function TrickArea({ state }: { state: PublicGameState }) {
 
   return (
     <div className="flex-1 flex flex-col items-center justify-center px-4 py-4 min-h-[220px]">
-      <p className="text-ink-soft italic text-xs mb-3">
+      <p className="text-ink-soft text-xs mb-3">
         ~ Trick {state.completedTrickCountThisRound + 1} of {state.round} ~
       </p>
       <div className="flex flex-wrap items-end justify-center gap-3 min-h-[8rem]">
         {state.currentTrick.length === 0 && !state.awaitingTrickAck && (
-          <p className="text-ink-soft/70 text-sm italic self-center">Waiting for the first card…</p>
+          <p className="text-ink-soft/70 text-sm self-center">Waiting for the first card…</p>
         )}
         {state.currentTrick.map((tc, i) => {
           const isWinner = state.awaitingTrickAck && state.lastTrickWinnerId === tc.playerId;

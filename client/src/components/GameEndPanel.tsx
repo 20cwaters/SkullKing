@@ -14,7 +14,7 @@ export function GameEndPanel({ state }: { state: PublicGameState }) {
       <h2 className="font-display text-5xl text-ink-strong text-shadow-gold leading-none">
         {winners.length > 1 ? 'Shared Glory!' : iWon ? 'You Win!' : 'The Voyage Ends'}
       </h2>
-      <p className="text-ink-soft italic">
+      <p className="text-ink-soft">
         {winners.map((id) => state.players.find((p) => p.id === id)?.name).join(' & ')} claim
         {winners.length === 1 ? 's' : ''} the treasure
       </p>

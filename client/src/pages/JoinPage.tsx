@@ -95,7 +95,7 @@ export default function JoinPage() {
           Skull King
         </h1>
         <Flourish />
-        <p className="text-ink-soft italic text-base mb-7 text-center max-w-xs">
+        <p className="text-ink-soft text-base mb-7 text-center max-w-xs">
           The classic pirate game of bids, bluffs &amp; blades — 2 to 6 scallywags
         </p>
 
@@ -194,7 +194,7 @@ export default function JoinPage() {
           </div>
         </div>
 
-        <p className="text-ink-soft/80 text-xs italic mt-6 text-center max-w-xs">
+        <p className="text-ink-soft/80 text-xs mt-6 text-center max-w-xs">
           Short on crew? Fill empty seats with bot buccaneers once you're in the room.
         </p>
       </div>

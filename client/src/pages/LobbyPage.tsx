@@ -27,7 +27,7 @@ export default function LobbyPage() {
     <PageBackground>
       <div className="min-h-screen flex flex-col items-center px-4 py-8">
         <h1 className="font-display text-5xl text-ink-strong text-shadow-gold mb-1">The Crew's Quarters</h1>
-        <p className="text-ink-soft italic mb-6">Waiting to set sail…</p>
+        <p className="text-ink-soft mb-6">Waiting to set sail…</p>
 
         <div className="w-full max-w-sm panel-parchment p-5 mb-4">
           <div className="flex items-center justify-between mb-1">
@@ -74,12 +74,12 @@ export default function LobbyPage() {
             ))}
             {emptySlots > 0 &&
               Array.from({ length: emptySlots }).map((_, i) => (
-                <li key={`empty-${i}`} className="flex items-center justify-between px-4 py-3 text-ink-soft/70 italic">
+                <li key={`empty-${i}`} className="flex items-center justify-between px-4 py-3 text-ink-soft/70">
                   <span>Empty seat</span>
                   {isHost && (
                     <button
                       onClick={addBot}
-                      className="text-xs font-bold text-[#2c4f7c] not-italic border-2 border-[#2c4f7c]/50 bg-[#faf4e2] rounded-full px-2.5 py-1"
+                      className="text-xs font-bold text-[#2c4f7c] border-2 border-[#2c4f7c]/50 bg-[#faf4e2] rounded-full px-2.5 py-1"
                     >
                       + Add Bot
                     </button>
@@ -114,7 +114,7 @@ export default function LobbyPage() {
               Weigh Anchor &amp; Start
             </button>
           ) : (
-            <p className="text-center text-ink-soft italic py-2">Waiting for the host to start the game…</p>
+            <p className="text-center text-ink-soft py-2">Waiting for the host to start the game…</p>
           )}
           <button onClick={leaveRoom} className="text-ink-soft text-sm underline underline-offset-2 text-center">
             Leave room
