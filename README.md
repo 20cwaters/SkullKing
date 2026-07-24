@@ -44,12 +44,11 @@ Runs the shared package's Vitest suite (43 tests) covering trick-winner resoluti
 
 ## Deploying to Render
 
-`render.yaml` defines two services:
+`render.yaml` defines a single web service: it builds `shared`, `server`, and `client`, then the Express server serves the built client as static files and handles Socket.IO on the same origin — no separate static site, no CORS to configure, one URL. See `server/src/index.ts`.
 
-- `skull-king-server` — a Node web service (`npm run build:shared && npm run build:server`, then `npm run start --workspace=server`), with a `/health` check.
-- `skull-king-client` — a static site (`npm run build:shared && npm run build:client`, publishing `client/dist`), with an SPA rewrite so client-side navigation works.
+Nothing to fill in after deploy; `npm start` (i.e. `npm run start --workspace=server`) just works once the build finishes.
 
-Update the `CLIENT_ORIGIN` and `VITE_SERVER_URL` env vars in `render.yaml` (or in the Render dashboard) to match your actual service URLs once they're provisioned — Render assigns the `.onrender.com` hostnames on first deploy, so you'll likely need one deploy, then a redeploy with the real URLs filled in.
+For local dev, the client and server still run as two separate processes (`dev:server` / `dev:client`) since that gives you hot reload on both — that's a dev-time convenience only, unrelated to how it's deployed.
 
 ## Extending later
 
